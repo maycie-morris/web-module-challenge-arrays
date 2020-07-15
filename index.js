@@ -121,15 +121,18 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(flavor) {
-    let iceCreamList
-    while ((iceCreamList = originalFlavors.indexOf(flavor)) > -1) {
-        originalFlavors.splice(iceCreamList, 1)
+function removeFlavorByName(flavorList, flavor) {
+
+    for (let i = 0; i < flavorList.length; i++) {
+        if (flavorList[i].includes(flavor)) {
+            flavorList.splice(i, 1);
+        }
     }
-    console.log(originalFlavors)
+    console.log(flavorList)
 }
 
-removeFlavorByName("Chocolate")
+
+removeFlavorByName(originalFlavors, 'Peach')
 
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
@@ -140,14 +143,14 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-function copy(newArray, oldArray) {
-
-    newArray = Array.from(oldArray)
-    return newArray
+function copy(originalArr, newArr) {
+    let newArray = [];
+    newArray = [...originalArr];
+    return newArray;
 }
 
-let emptyArray = []
-copy(emptyArray, originalFlavors)
+
+console.log(copy(originalFlavors))
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. Write a function that checks every item in the array for a given string and returns a new array called filteredArray with just these values. Rather than hardcoding "chocolate" into your function, pass a string as a parameter, and invoke with the argument "chocolate". This way you could also filter for "Vanilla", "Sherbert", etc. when those holidays roll around.
 
