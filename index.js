@@ -49,7 +49,7 @@ function is31Flavors(iceCreamFlavors) {
     }
 }
 
-is31Flavors(originalFlavors)
+console.log(is31Flavors(originalFlavors))
 
 /* Task 2: Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
 
@@ -65,11 +65,11 @@ For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainb
 function addFlavor(flavor) {
 
     originalFlavors.unshift("flavor");
-    console.log(flavor)
+    return flavor
 
 }
 
-addFlavor("Cookies n Cream")
+console.log(addFlavor("Cookies n Cream"))
 
 
 /* Task 3: Houston, we have a problem! There are now 32 flavors in the array! Your task is to remove an item from the end of the array. 
@@ -105,7 +105,7 @@ function getFlavorByIndex(iceCreamFlavor, flavorNumber) {
 
 }
 
-getFlavorByIndex(originalFlavors, 5)
+console.log(getFlavorByIndex(originalFlavors, 5))
 
 
 /* Task 5: As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that flavor from the array. 
@@ -128,12 +128,11 @@ function removeFlavorByName(flavorList, flavor) {
             flavorList.splice(i, 1);
         }
     }
-    console.log(flavorList)
+    return flavorList
 }
 
 
-removeFlavorByName(originalFlavors, 'Peach')
-
+console.log(removeFlavorByName(originalFlavors, 'Peach'))
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
@@ -193,11 +192,14 @@ and should return the average number of words per item in the array.
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
-function getAverageWordLength(/*code here*/) {
-
-    /*code here*/
-
+function getAverageWordLength(array) {
+    avg = array.join('').length / array.length
+    return avg
 }
+
+console.log(getAverageWordLength(originalFlavors))
+
+/* note for myself: join() method creates and returns a new string by concatenating all of the elements in an array */
 
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
